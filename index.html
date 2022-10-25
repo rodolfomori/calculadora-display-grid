@@ -15,27 +15,51 @@
 <body>
     <div>
 
-        <p>12,452</p>
-        <button class="gray-button">AC</button>
-        <button class="gray-button">+/-</button>
-        <button class="blue-button">/</button>
-        <button class="blue-button">*</button>
-        <button class="black-button">7</button>
-        <button class="black-button">8</button>
-        <button class="black-button">9</button>
-        <button class="blue-button">-</button>
-        <button class="black-button">4</button>
-        <button class="black-button">5</button>
-        <button class="black-button">6</button>
-        <button class="blue-button">+</button>
-        <button class="black-button">1</button>
-        <button class="black-button">2</button>
-        <button class="black-button">3</button>
-        <button class="equal-button equal">=</button>
-        <button class="black-button zero">0</button>
-        <button class="black-button">.</button>
+        <input class="display">
+        <button class="gray-button" onclick="limpaTela()">AC</button>
+        <button class="gray-button" onclick="inverterNumero()">+/-</button>
+        <button class="blue-button" onclick="adicionarCaracter('/')">/</button>
+        <button class="blue-button" onclick="adicionarCaracter('*')">*</button>
+        <button class="black-button" onclick="adicionarCaracter('7')">7</button>
+        <button class="black-button" onclick="adicionarCaracter('8')">8</button>
+        <button class="black-button" onclick="adicionarCaracter('9')">9</button>
+        <button class="blue-button" onclick="adicionarCaracter('-')">-</button>
+        <button class="black-button" onclick="adicionarCaracter('4')">4</button>
+        <button class="black-button" onclick="adicionarCaracter('5')">5</button>
+        <button class="black-button" onclick="adicionarCaracter('6')">6</button>
+        <button class="blue-button" onclick="adicionarCaracter('+')">+</button>
+        <button class="black-button" onclick="adicionarCaracter('1')">1</button>
+        <button class="black-button" onclick="adicionarCaracter('2')">2</button>
+        <button class="black-button" onclick="adicionarCaracter('3')">3</button>
+        <button class="equal-button equal" onclick="calcular()">=</button>
+        <button class="black-button zero" onclick="adicionarCaracter('0')">0</button>
+        <button class="black-button" onclick="adicionarCaracter('.')">.</button>
 
     </div>
 </body>
+<script>
 
+function adicionarCaracter(caracter){
+    const valorDisplay = document.querySelector(".display").value
+
+    document.querySelector(".display").value = valorDisplay + caracter
+}
+
+function limpaTela(){
+    document.querySelector(".display").value = ""
+}
+
+function calcular(){
+    const valorDisplay = document.querySelector(".display").value
+
+    document.querySelector(".display").value = eval(valorDisplay)
+}
+
+function inverterNumero(){
+    const valorDisplay = document.querySelector(".display").value
+
+    document.querySelector(".display").value = valorDisplay * -1
+}
+
+</script>
 </html>
